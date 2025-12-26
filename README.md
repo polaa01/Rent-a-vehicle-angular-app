@@ -42,12 +42,12 @@ Create new malfunctions for vehicles
 
 MANAGERS have access to:
 
-All Administrator features
-All Operator features
+- All Administrator features
+- All Operator features
 Statistics and Reports Page
   - Daily total revenue for a selected month (chart)
-Number of malfunctions per vehicle
-Total revenue grouped by vehicle type
-Charts implemented using external libraries
+  - Number of malfunctions per vehicle
+  - Total revenue grouped by vehicle type
+  - Charts implemented using external libraries
 Pricing Management
 Definition and modification of rental price
