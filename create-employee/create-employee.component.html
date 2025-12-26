@@ -1,0 +1,46 @@
+<div class="over">
+    <mat-card clas="form-card">
+    
+       <h2 class="title">Create New Employee</h2>
+       <form [formGroup]="createEmployeeForm">
+
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" required>
+          </mat-form-field>
+   
+           <mat-form-field appearance="outline">
+               <mat-label>Last Name</mat-label>
+               <input matInput matInput formControlName="lastName" required>
+           </mat-form-field>
+   
+           <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput matInput formControlName="username" required>
+        </mat-form-field>
+   
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput matInput formControlName="password" type="password" required>
+        </mat-form-field>
+   
+        <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+              <mat-option *ngFor="let role of roles" [value]="role">
+                {{ role }}
+              </mat-option>
+            </mat-select>
+           </mat-form-field>
+       
+           <div class="buttons">
+             <button mat-button color="warn" type="button" (click)="closeForm()">Cancel</button>
+             <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+           </div>
+         </form>
+   
+   </mat-card>
+   </div>
+   
+   
+   

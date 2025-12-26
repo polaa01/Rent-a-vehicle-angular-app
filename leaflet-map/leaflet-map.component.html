@@ -1,0 +1,19 @@
+<!-- <div id="map" class="map-container"></div> -->
+<div class="matrix-wrapper">
+<div class="matrix-map">
+    <div
+      *ngFor="let cell of getGridArray(); let i = index"
+      class="cell">
+      
+      <ng-container *ngIf="isVehicleAt(getCoordinates(i).x, getCoordinates(i).y) as vehicle">
+        <img
+          [src]="baseUrl+vehicle.image"
+          alt="vehicle"
+          class="vehicle-icon"
+          (click)="showVehicleInfo(vehicle)"
+        />
+      </ng-container>
+    
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+ <div class="over">
+ <mat-card clas="form-card">
+ 
+    <h2 class="title">Create New Manufacturer</h2>
+    <form (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Manufacturer Name</mat-label>
+          <input matInput [(ngModel)]="manufacturer.name" name="name" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Manufacturer Address</mat-label>
+            <input matInput [(ngModel)]="manufacturer.address" name="address" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Manufacturer Country</mat-label>
+            <input matInput [(ngModel)]="manufacturer.country" name="country" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Manufacturer Phone</mat-label>
+            <input matInput [(ngModel)]="manufacturer.phone" name="phone" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Manufacturer Fax</mat-label>
+            <input matInput [(ngModel)]="manufacturer.fax" name="fax" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="manufacturer.email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" #emailInput="ngModel" required>
+            <mat-error *ngIf="emailInput.invalid && emailInput.touched">
+              <ng-container *ngIf="emailInput.errors?.['required']">
+          Email is required.
+            </ng-container>
+            <ng-container *ngIf="emailInput.errors?.['pattern']">
+          Enter valid email address.
+          </ng-container>
+           </mat-error>
+        </mat-form-field>
+    
+        <div class="buttons">
+          <button mat-button color="warn" type="button" (click)="closeForm()">Cancel</button>
+          <button mat-raised-button color="primary" type="submit">Save</button>
+        </div>
+      </form>
+
+</mat-card>
+</div>
+
+

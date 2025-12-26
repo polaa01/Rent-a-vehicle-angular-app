@@ -1,0 +1,19 @@
+.chart-container {
+  display: flex;
+  margin-left: 15px;
+  gap: 14px;
+  margin-bottom: 15px;
+}
+
+.chart-container canvas
+ {
+  flex: 1; 
+  max-width: 35%;
+  height: 100px;
+}
+
+.chart-container-full canvas
+ {
+  width: 70%;
+  height: 100px;
+}

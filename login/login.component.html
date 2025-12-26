@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <div class="container">
+       
+        <mat-card class="login-card">
+          <h1 class="log">Login</h1>
+          <form [formGroup]="form">
+           
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName = "username" type="text">
+                <mat-error *ngIf="form.get('username')?.invalid && form.get('username')?.touched">
+                    Username is required
+                </mat-error>
+              </mat-form-field>
+        
+
+            
+         <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName = "password" type ="password">
+            <mat-error *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+                Password is required
+            </mat-error>
+           </mat-form-field>
+        
+          <div class="button-container">
+            <button mat-raised-button (click)="onLogin()" [disabled]="form.invalid">Login</button>
+            <button mat-raised-button (click)="onReset()">Reset</button>
+          </div>
+          
+
+          </form>
+         
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+          
+        </mat-card>
+
+
+    </div>
+
+
+</body>
+</html>

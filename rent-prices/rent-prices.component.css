@@ -1,0 +1,43 @@
+ form{
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  mat-form-field
+  {
+    width: 100%;
+  }
+
+  .buttons
+  {
+    display: flex;
+    gap: 5px;
+  }
+
+  .form-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 500px;
+    height: 500px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    
+  }
+
+  .container
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title
+{
+    margin: 15px;
+    color: #578FCA
+}

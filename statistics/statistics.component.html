@@ -1,0 +1,21 @@
+<div class="choice">
+  <label for="month">Month:</label>
+  <select id="month" [(ngModel)]="selectedMonth" (change)="fillCharts()">
+    <option *ngFor="let m of months" [value]="m.value">{{ m.name }}</option>
+  </select>
+<br>
+<br>
+  <label for="year">Year:</label>
+  <select id="year" [(ngModel)]="selectedYear" (change)="fillCharts()">
+    <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+  </select>
+</div>
+
+<div class="chart-container">
+<canvas #chart1></canvas>
+<canvas #chart2></canvas>
+</div>
+
+<div class="chart-container-below">
+  <canvas #chart3></canvas>
+</div>

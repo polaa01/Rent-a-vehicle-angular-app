@@ -1,0 +1,104 @@
+
+<div class="button-container" *ngIf="type === 'employee'">
+    <button mat-raised-button (click)="openCreateForm()">Create</button>
+</div>
+<app-create-employee *ngIf="showCreateForm" (cancel)="closeCreateForm()">
+</app-create-employee>
+
+<app-update-employee *ngIf="showUpdateForm" (cancel)="closeUpdateForm()" [employee]="selectedEmployee" (save)="onSave($event)">
+</app-update-employee>
+
+<div class="search-container">
+    <input mat-input (keyup)="applyFilter($event)" placeholder="Search by name">
+</div>
+
+
+<div class="table-container">
+
+    <table mat-table [dataSource]="dataSource">
+   
+       <ngContainer matColumnDef="id">
+           <th mat-header-cell *matHeaderCellDef> ID </th>
+           <td mat-cell *matCellDef="let element">{{element.id}}</td>
+       </ngContainer>
+   
+       <ngContainer matColumnDef="firstName">
+       <th mat-header-cell *matHeaderCellDef> First Name </th>
+       <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
+       </ngContainer>
+   
+       <ngContainer matColumnDef="lastName">
+           <th mat-header-cell *matHeaderCellDef> Last Name </th>
+           <td mat-cell *matCellDef="let element">{{element.lastName}}</td>
+       </ngContainer>
+
+       <ngContainer matColumnDef="role" *ngIf="type === 'employee'">
+        <th mat-header-cell *matHeaderCellDef> Role </th>
+        <td mat-cell *matCellDef="let element">{{element.role}}</td>
+       </ngContainer>
+
+       <ngContainer matColumnDef="email" *ngIf="type === 'client'">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+       </ngContainer>
+
+       <ngContainer matColumnDef="idCardNumber" *ngIf="type === 'client'">
+        <th mat-header-cell *matHeaderCellDef> ID Card </th>
+        <td mat-cell *matCellDef="let element">{{element.idCardNumber}}</td>
+       </ngContainer>
+
+       <!-- 
+       <ngContainer matColumnDef="driverLicenseNumber" *ngIf="type === 'client'">
+        <th mat-header-cell *matHeaderCellDef> Driver License </th>
+        <td mat-cell *matCellDef="let element">{{element.driverLicenseNumber}}</td>
+       </ngContainer>
+       -->
+       <ngContainer matColumnDef="passportNumber" *ngIf="type === 'client'">
+        <th mat-header-cell *matHeaderCellDef> Passport </th>
+        <td mat-cell *matCellDef="let element">{{element.passportNumber}}</td>
+       </ngContainer>
+
+       <ngContainer matColumnDef="phoneNumber" *ngIf="type === 'client'">
+        <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+        <td mat-cell *matCellDef="let element">{{element.phoneNumber}}</td>
+       </ngContainer>
+
+       <ngContainer matColumnDef="isBlocked" *ngIf="type === 'client'">
+        <th mat-header-cell *matHeaderCellDef> Is Blocked </th>
+        <td mat-cell *matCellDef="let element">{{ element.isBlocked? 'Yes' : 'No' }}</td>
+       </ngContainer>
+
+   
+                       <ng-container matColumnDef="actions">
+                           <th mat-header-cell *matHeaderCellDef> Actions </th>
+                           <td mat-cell *matCellDef="let element">
+
+                            <ng-container *ngIf="type === 'employee'">
+                             <button mat-icon-button color="warn" (click)="deleteUser(element.id)">
+                               <mat-icon>delete</mat-icon>
+                             </button>
+   
+                             <button mat-icon-button color="warn" (click)="editUser(element)">
+                               <mat-icon>edit</mat-icon>
+                             </button>
+                            </ng-container>
+
+
+                            <ng-container *ngIf="type === 'client'">
+                                <button mat-icon-button color="accent" (click)="toggleBlockClient(element)"
+                                  [matTooltip]="element.isBlocked ? 'Unblock client' : 'Block client'"
+                                  matTooltipPosition="above">
+                                  <mat-icon>{{ element.isBlocked ? 'lock_open' : 'lock' }}</mat-icon>
+                                </button>
+                              </ng-container>
+   
+                           </td>
+
+                       </ng-container>
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+   
+    </table>
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5,10,15]" showFirstLastButtons></mat-paginator>
+   </div>

@@ -1,0 +1,85 @@
+<div class="over">
+    <mat-card clas="form-card">
+    
+       <h2 class="title">Create New Vehicle</h2>
+       <form [formGroup]="createVehicleForm">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Manufacturer</mat-label>
+          <mat-select formControlName="manufacturerId">
+            <mat-option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.id">
+              {{ manufacturer.name }}
+            </mat-option>
+          </mat-select>
+         </mat-form-field>
+
+           <mat-form-field appearance="outline">
+             <mat-label>Model</mat-label>
+             <input matInput formControlName="model" required>
+           </mat-form-field>
+   
+           
+           <mat-form-field appearance="outline">
+              <mat-label>Purchase Price</mat-label>
+              <input matInput formControlName="price" type="number" min="1000" max="25000" step="500" required>
+           </mat-form-field>
+           
+   
+           <mat-form-field appearance="outline">
+               <mat-label>Vehicle Id</mat-label>
+               <input matInput formControlName="vehicleId" required>
+           </mat-form-field>
+   
+           <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option *ngFor="let status of statuses" [value]="status">
+                {{ status }}
+              </mat-option>
+            </mat-select>
+           </mat-form-field>
+
+           <div *ngIf="type === 'car'">
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <input matInput formControlName="description" required>
+            </mat-form-field>
+           </div>
+           
+           <div *ngIf="type === 'car'">
+           <mat-form-field appearance="outline">
+            <mat-label>Select Purchase Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="purchaseDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+           </mat-form-field>
+           </div>
+
+           <div *ngIf="type === 'scooter'">
+            <mat-form-field appearance="outline">
+              <mat-label>Max Speed</mat-label>
+              <input matInput formControlName="maxSpeed" type="number" min="20" max="80" step="5" required>
+            </mat-form-field>
+           </div>
+
+           <div *ngIf="type === 'bike'">
+            <mat-form-field appearance="outline">
+              <mat-label>Autonomy</mat-label>
+              <input matInput formControlName="autonomy" type="number" min="10" max="200" step="10" required>
+            </mat-form-field>
+           </div>
+   
+        
+       
+           <div class="buttons">
+             <button mat-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+             <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+           </div>
+         </form>
+   
+   </mat-card>
+   </div>
+
+
+   

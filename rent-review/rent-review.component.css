@@ -1,0 +1,40 @@
+.table-container
+{
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.table-container table
+{
+    border: 1px solid #074799;
+    
+}
+
+th[mat-header-cell] {
+    font-weight: bold;
+    font-size: 18px;
+    color: #578FCA;
+}
+
+tr[mat-row]
+{
+    background-color: #578FCA;
+    color: white;
+    border-bottom: 1px solid #074799;
+    font-size: 14px;
+}
+
+.sub-title
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #578FCA; 
+}
+
+.search-container
+{
+    margin-left: 15px;
+    margin-top: 22px;
+}

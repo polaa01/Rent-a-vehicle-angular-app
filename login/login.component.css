@@ -1,0 +1,99 @@
+body{
+    
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #074799, #578FCA, #A1E3F9);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    border: none;
+    box-shadow: none;
+    
+
+}
+
+.login-card
+{
+    
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    border: none;
+    box-shadow: none;
+}
+
+mat-label
+{
+    color: black !important;
+}
+
+mat-form-field
+{
+    width: 80%;
+    font-size: 22px;
+    margin-bottom: 10px;
+    border-color: #4D55CC !important;
+}
+
+.log
+{
+    margin-bottom: 70px;
+    font-style: italic;
+    color: #4D55CC;
+}
+
+.button-container
+{
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+           
+}
+
+button{
+    border-radius: 7px;
+    width: 35%;
+    height: 50px;
+    font-size: 19px;
+    color: #4D55CC !important;
+    background-color: #C7D9DD !important;
+}
+
+.reg
+{
+    margin-top: 25px;
+}
+
+a{
+    color:#4D55CC;
+    text-decoration: none;
+}
+
+a:visited
+{
+    color:#4D55CC;
+}
+
+a:hover{
+   text-decoration: underline;
+}
+
+.error-message
+{
+    color: red;
+    margin-top: 10px;
+    font-size: 18px;
+}

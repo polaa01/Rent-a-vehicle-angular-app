@@ -1,0 +1,143 @@
+<div class="sub-title">
+    <button mat-icon-button (click)="goBack()" class="back">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2 class="title-text">Vehicle Details</h2>
+  </div>
+
+  <div class="container">
+
+  <mat-card class="vehicle-card">
+    <mat-card-title>Vehicle Info</mat-card-title>
+    <mat-card-content>
+
+    <div *ngIf="vehicle">
+      <div><strong>Id:</strong> {{ vehicle.id }}</div>
+      <div><strong>Model:</strong> {{ vehicle.model }}</div>
+      <div><strong>Price:</strong> {{ vehicle.purchasePrice }}</div>
+      <div><strong>Vehicle id:</strong> {{ vehicle.vehicleId }}</div>
+      <div><strong>Manufacturer:</strong> {{ vehicle.manufacturer.name }}</div>
+      
+
+      <div *ngIf="type === 'car'">
+        <p><strong>Description:</strong> {{ vehicle.description }}</p>
+        <p><strong>Purchase Date:</strong> {{ vehicle.purchaseDate | date }}</p>
+      </div>
+
+      <div *ngIf="type === 'bike'">
+        <p><strong>Autonomy:</strong> {{ vehicle.autonomy }}</p>
+      </div>
+    
+      
+      <div *ngIf="type === 'scooter'">
+        <p><strong>Max Speed:</strong> {{ vehicle.maxSpeed }}</p>
+      </div>
+
+    </div>
+      
+    </mat-card-content>
+  </mat-card>
+
+  <div class="table-container right-table">
+    <h3>Malfunctions</h3>
+    <table mat-table [dataSource]="dataSourceFaults" class="mat-elevation-z1">
+
+       <ngContainer matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ngContainer>
+
+        <ngContainer matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date reported </th>
+        <td mat-cell *matCellDef="let element">{{element.dateReported | date:'dd.MM.yyyy HH:mm'}}</td>
+    </ngContainer>
+
+        <ngContainer matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element">{{element.description}}</td>
+         </ngContainer>
+
+         <ng-container matColumnDef="actions">
+                           <th mat-header-cell *matHeaderCellDef> Actions </th>
+                           <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button class="del" color="warn" (click)="deleteFault(element.id)">
+                     <mat-icon>delete</mat-icon>
+                    </button>
+                       </td>
+        </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsForFaults"></tr>
+ <tr mat-row *matRowDef="let row; columns: displayedColumnsForFaults"></tr>
+    
+    </table>
+  </div>
+</div>
+
+
+<div class="table-container below-table">
+  <h3>Rentals</h3>
+  <table mat-table [dataSource]="dataSourceRentals" class="mat-elevation-z1">
+    <ngContainer matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ngContainer>
+
+        <ngContainer matColumnDef="clientName">
+        <th mat-header-cell *matHeaderCellDef> Client </th>
+        <td mat-cell *matCellDef="let element">{{element.client.username}}</td>
+    </ngContainer>
+
+        <ngContainer matColumnDef="startPositionX">
+            <th mat-header-cell *matHeaderCellDef> Start X </th>
+            <td mat-cell *matCellDef="let element">{{element.startPositionX}}</td>
+         </ngContainer>
+
+            <ngContainer matColumnDef="startPositionY">
+                <th mat-header-cell *matHeaderCellDef> Start Y </th>
+                <td mat-cell *matCellDef="let element">{{element.startPositionY}}</td>
+            </ngContainer>
+
+
+                <ngContainer matColumnDef="endPositionX">
+                    <th mat-header-cell *matHeaderCellDef> End X </th>
+                    <td mat-cell *matCellDef="let element">{{element.endPositionX}}</td>
+                </ngContainer>
+
+                <ngContainer matColumnDef="endPositionY">
+                        <th mat-header-cell *matHeaderCellDef> End Y </th>
+                        <td mat-cell *matCellDef="let element">{{element.endPositionY}}</td>
+                    </ngContainer>
+
+                    <ngContainer matColumnDef="startTime">
+                        <th mat-header-cell *matHeaderCellDef> Start time </th>
+                        <td mat-cell *matCellDef="let element">{{element.startTime}}</td>
+                    </ngContainer>
+
+                     <ngContainer matColumnDef="endTime">
+                        <th mat-header-cell *matHeaderCellDef> End time </th>
+                        <td mat-cell *matCellDef="let element">{{element.endTime}}</td>
+                    </ngContainer>
+
+                     <ngContainer matColumnDef="duration">
+                        <th mat-header-cell *matHeaderCellDef> Duration </th>
+                        <td mat-cell *matCellDef="let element">{{element.duration}}</td>
+                    </ngContainer>
+
+                    <ngContainer matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef> Price </th>
+                        <td mat-cell *matCellDef="let element">{{element.price}}</td>
+                    </ngContainer>
+
+                     
+
+                   
+
+ <tr mat-header-row *matHeaderRowDef="displayedColumnsForRentals"></tr>
+ <tr mat-row *matRowDef="let row; columns: displayedColumnsForRentals"></tr>
+  </table>
+</div>
+
+  
+
+

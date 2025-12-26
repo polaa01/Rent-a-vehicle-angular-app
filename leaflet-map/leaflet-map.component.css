@@ -1,0 +1,96 @@
+/*.map-container
+{
+    height: 300px;
+    width: 300px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+*/
+
+
+
+
+/*zajedno ide ovo i #map ispod*/
+/*
+.map-container {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+
+#map {
+    height: 500px;           
+    width: 100%;              
+    margin: 10px auto;      
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    
+  }
+    */
+/*
+    :host {
+      display: block;
+      height: 100%;
+    }
+    
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+
+*/
+.matrix-wrapper {
+  /*
+  padding: 10px;
+  height: 100%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  */
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.matrix-map {
+  display: grid;
+  grid-template-columns: repeat(50, 18px);
+  grid-template-rows: repeat(30, 18px);
+  gap: 1px;
+  /*width: fit-content;*/
+  border: 2px solid #444;
+  /*box-sizing: border-box;*/
+
+}
+
+.cell {
+  width: 18px;
+  height: 18px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.has-vehicle {
+  background-color: #cce5ff;
+}
+
+.vehicle-icon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}

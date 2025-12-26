@@ -1,0 +1,75 @@
+
+<h2 class="sub-title">Manufacturers</h2>
+<div class="button-container">
+    <button mat-raised-button (click)="openManufacturerForm()">Create</button>
+</div>
+ <app-manufacturer-create-form *ngIf="showForm" (close)="closeManufacturerForm()"></app-manufacturer-create-form>
+ 
+ <app-manufacturer-update-form
+  *ngIf="showUpdateForm" (cancel)="closeUpdateForm()" [manufacturer]="selectedManufacturer" (save)="onSave($event)">
+</app-manufacturer-update-form>
+
+<div class="search-container">
+<input mat-input (keyup)="applyFilter($event)" placeholder="Search by name">
+</div>
+
+<div class="table-container">
+
+ <table mat-table [dataSource]="dataSource">
+
+    <ngContainer matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ngContainer>
+
+    <ngContainer matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ngContainer>
+
+    <ngContainer matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef> Country </th>
+        <td mat-cell *matCellDef="let element">{{element.country}}</td>
+    </ngContainer>
+
+        <ngContainer matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone </th>
+            <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+         </ngContainer>
+
+            <ngContainer matColumnDef="address">
+                <th mat-header-cell *matHeaderCellDef> Address </th>
+                <td mat-cell *matCellDef="let element">{{element.address}}</td>
+            </ngContainer>
+
+
+                <ngContainer matColumnDef="fax">
+                    <th mat-header-cell *matHeaderCellDef> Fax </th>
+                    <td mat-cell *matCellDef="let element">{{element.fax}}</td>
+                </ngContainer>
+
+                    <ngContainer matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+                    </ngContainer>
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> Actions </th>
+                        <td mat-cell *matCellDef="let element">
+                          <button mat-icon-button color="warn" (click)="deleteManufacturer(element.id)">
+                            <mat-icon>delete</mat-icon>
+                          </button>
+
+                          <button mat-icon-button color="warn" (click)="editManufacturer(element)">
+                            <mat-icon>edit</mat-icon>
+                          </button>
+
+                        </td>
+                    </ng-container>
+
+ <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+ <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+ </table>
+ <mat-paginator [pageSize]="5" [pageSizeOptions]="[5,10,15]" showFirstLastButtons></mat-paginator>
+</div>

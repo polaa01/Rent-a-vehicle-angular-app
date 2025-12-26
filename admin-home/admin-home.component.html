@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+    <div class="container">
+       <header>{{role}} APPLICATION</header>
+       
+       <div class="content">
+        <nav class="sidebar">
+      <ul>
+        <li *ngIf="role === 'ADMIN' || role === 'MANAGER'"><a routerLink="/admin/vehicle-management">Vehicle management</a></li>
+        <li *ngIf="role === 'ADMIN' || role === 'MANAGER'"><a routerLink="/admin/manufacturers">Manufacturers</a></li>
+        <li *ngIf="role === 'ADMIN' || role === 'MANAGER' || role === 'OPERATOR'"><a routerLink="/admin/users">Users management</a></li>
+        <li  *ngIf="role === 'OPERATOR' || role === 'MANAGER'"><a routerLink="/operator/rentReview">Rent review</a></li>
+        <li  *ngIf="role === 'OPERATOR' || role === 'MANAGER'"><a routerLink="/operator/vehicleMap">Vehicles on Map</a></li>
+        <li  *ngIf="role === 'OPERATOR' || role === 'MANAGER'"><a routerLink="/operator/create-fault">Create fault</a></li>
+        <li  *ngIf="role === 'MANAGER'"><a routerLink="/manager/stats">Statistics</a></li>
+        <li  *ngIf="role === 'MANAGER'"><a routerLink="/manager/rent-prices">Rent prices</a></li>
+        <li *ngIf="role === 'MANAGER'">
+        <li *ngIf="role === 'ADMIN' || role === 'MANAGER' || role === 'OPERATOR'"><a (click)="openRss()" style="cursor: pointer;"> RSS Feed</a></li>
+
+        <!-- <li  *ngIf="role === 'OPERATOR' || role === 'MANAGER'"><a routerLink="#">Clients review</a></li> -->
+        <li><a routerLink="/" (click)="onLogout()">Logout</a></li>
+      </ul>
+        </nav>
+        <div class="main-content">
+         <router-outlet></router-outlet>
+        </div>
+
+       </div>
+       <footer>&copy; {{ currentYear }}</footer>
+    </div>
+
+</body>
+</html>
+
