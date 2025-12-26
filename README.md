@@ -7,7 +7,7 @@ The system supports management and monitoring of vehicles, rentals, users, manuf
 The application supports the following employee roles:
 
 
-Administrators have access to:
+ADMINISTRATORS have access to:
 
 Vehicle Management Page
 
@@ -41,7 +41,7 @@ Full CRUD operations for employee accounts
 
 
 
-Operators have access to:
+OPERATORS have access to:
 
 Rental Overview Page
 
@@ -64,7 +64,7 @@ Malfunction Reporting
 Create new malfunctions for vehicles
 
 
-Managers have access to:
+MANAGERS have access to:
 
 All Administrator features
 
